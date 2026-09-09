@@ -19,7 +19,9 @@ class InsecureLoggingActivity : AppCompatActivity() {
         builder.setTitle("Login")
         loggingButton.setOnClickListener {
             val logMessage = "Username: ${username.text} and Password: ${password.text} are verified"
-            Log.i("Info:", logMessage)
+            if (BuildConfig.DEBUG) {
+                Log.i("Info:", "Username and Password are verified")
+            }
             System.out.println(logMessage)
             builder.setMessage("Username and Password are verified")
             builder.setPositiveButton("OK") { dialog, _ ->
