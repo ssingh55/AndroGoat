@@ -21,10 +21,11 @@ class SQLinjectionActivity : AppCompatActivity() {
         val builder = androidx.appcompat.app.AlertDialog.Builder(this)
         builder.setTitle("Search Users")
         sqliButton.setOnClickListener{
-            val qry = "SELECT * FROM users WHERE username='"+username.text+"'";
+            val qry = "SELECT * FROM users WHERE username=?";
+            val selectionArgs = arrayOf(username.text.toString())
             try {
                 mDB = openOrCreateDatabase("aGoat", 0, null)
-                val qryResult = mDB?.rawQuery(qry, null)
+                val qryResult = mDB?.rawQuery(qry, selectionArgs)
                 val strb = StringBuilder("")
                 if (qryResult == null || qryResult.count <= 0) {
                     strb.append("User: (${username.text}) not found")
