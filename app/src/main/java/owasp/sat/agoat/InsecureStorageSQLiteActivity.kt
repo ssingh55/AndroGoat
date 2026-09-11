@@ -29,10 +29,10 @@ class InsecureStorageSQLiteActivity : AppCompatActivity() {
         saveButton.setOnClickListener {
             val builder = androidx.appcompat.app.AlertDialog.Builder(this)
             builder.setTitle("Login")
-            val qry = "INSERT INTO users (username, password) VALUES('${username.text}','${password.text}')"
+            val qry = "INSERT INTO users (username, password) VALUES(?,?)"
 
             try {
-                mDB?.execSQL(qry)
+                mDB?.execSQL(qry, arrayOf(username.text.toString(), password.text.toString()))
                 builder.setMessage("Username and Password are verified")
                 Toast.makeText(applicationContext, "Username and Password are verified", Toast.LENGTH_LONG).show()
             } catch (e: Exception) {

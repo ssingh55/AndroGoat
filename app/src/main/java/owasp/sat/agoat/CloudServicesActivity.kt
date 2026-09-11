@@ -10,8 +10,6 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class CloudServicesActivity : AppCompatActivity() {
-    private val aws_access_key_id = "AKIAX56QKKOLPQ7G7ABC"
-    private val aws_secret_access_key = "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"
     val output = "json"
     val region = "ap-south-2"
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,14 +20,14 @@ class CloudServicesActivity : AppCompatActivity() {
         val builder = androidx.appcompat.app.AlertDialog.Builder(this)
         builder.setTitle("Login")
         cloudServices.setOnClickListener {
-            builder.setMessage("Connected to AWS account using Access key " + aws_access_key_id + " and secret key " + aws_secret_access_key)
+            builder.setMessage("Connected to AWS account")
             builder.setPositiveButton("OK") { dialog, _ ->
                 dialog.dismiss()
             }
             val dialog = builder.create()
             dialog.show()
-            //Toast.makeText(applicationContext, "Connected to AWS account using Access key " + aws_access_key_id + "and secret key " + aws_secret_access_key , Toast.LENGTH_LONG).show()
-            Log.d("[Info]", "Connected to AWS account using Access key " + aws_access_key_id + " and secret key " + aws_secret_access_key)
+            //Toast.makeText(applicationContext, "Connected to AWS account", Toast.LENGTH_LONG).show()
+            Log.d("[Info]", "Connected to AWS account")
             setContentView(R.layout.activity_cloud_services_view)
         }
     }
