@@ -51,6 +51,7 @@ class AccessControlIssue1Activity : AppCompatActivity() {
 
     private fun verifyPINView() {
         setContentView(R.layout.activity_access_verify_pin)
+        window.decorView.rootView.setFilterTouchesWhenObscured(true)
         val verifyPINButton = findViewById<Button>(R.id.verifyPIN)
         verifyPINButton.setOnClickListener {
             val pinValue = findViewById<EditText>(R.id.pinValue)
@@ -66,6 +67,10 @@ class AccessControlIssue1Activity : AppCompatActivity() {
 
     private fun hashPIN(pinValue: String): String {
         val md = MessageDigest.getInstance("MD5").digest(pinValue.toByteArray()).joinToString("") { "%02x".format(it) }
+        return md
+    }
+}
+String("") { "%02x".format(it) }
         return md
     }
 }
