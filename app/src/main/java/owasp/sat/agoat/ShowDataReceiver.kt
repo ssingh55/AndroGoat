@@ -8,6 +8,6 @@ import android.widget.Toast
 class ShowDataReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
-        Toast.makeText(context, "Username is CrazyUser, Password is CrazyPassword and Key is 123myKey456", Toast.LENGTH_LONG).show()
+        // Removed: Toast.makeText(context, "Username is CrazyUser, Password is CrazyPassword and Key is 123myKey456", Toast.LENGTH_LONG).show()
     }
 }
