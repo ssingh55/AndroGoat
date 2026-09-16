@@ -10,8 +10,8 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class CloudServicesActivity : AppCompatActivity() {
-    private val aws_access_key_id = "AKIAX56QKKOLPQ7G7ABC"
-    private val aws_secret_access_key = "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"
+    private val aws_access_key_id = ""
+    private val aws_secret_access_key = ""
     val output = "json"
     val region = "ap-south-2"
     override fun onCreate(savedInstanceState: Bundle?) {
